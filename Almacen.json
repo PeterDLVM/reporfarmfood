@@ -1,0 +1,140 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "vendedor1",
+      "contrasena": "duoc1234",
+      "tipo": "vendedor"
+    },
+    {
+      "id": "2",
+      "nombre": "vendedor2",
+      "contrasena": "duoc1234",
+      "tipo": "vendedor"
+    },
+    {
+      "id": "3",
+      "nombre": "admin",
+      "contrasena": "duoc1234",
+      "tipo": "admin"
+    },
+    {
+      "id": "4",
+      "nombre": "supervisor",
+      "contrasena": "duoc1234",
+      "tipo": "supervisor"
+    },
+    {
+      "id": "5",
+      "nombre": "trabajador",
+      "contrasena": "duoc1234",
+      "tipo": "trabajador"
+    }
+  ],
+  "solicitudes": [
+    {
+      "id": "1",
+      "vendedorId": "1",
+      "fecha": "2023-10-01",
+      "nombreCliente": "Juan Herrera",
+      "estado": "pendiente",
+      "articulos": [
+        {
+          "nombre": "Articulo 1",
+          "cantidad": 2
+        },
+        {
+          "nombre": "Articulo 2",
+          "cantidad": 1
+        }
+      ],
+      "observaciones": "cada mes"
+    },
+    {
+      "id": "2",
+      "vendedorId": "1",
+      "fecha": "2023-10-02",
+      "nombreCliente": "Ana Gomez",
+      "estado": "pendiente",
+      "articulos": [
+        {
+          "nombre": "Articulo 3",
+          "cantidad": 5
+        }
+      ],
+      "observaciones": "Observaciones de la solicitud 2"
+    },
+    {
+      "id": "3",
+      "vendedorId": "1",
+      "fecha": "2024-11-04",
+      "nombreCliente": "Carlos Ramirez",
+      "estado": "pendiente",
+      "articulos": [
+        {
+          "nombre": "carne(kg)",
+          "cantidad": 400
+        },
+        {
+          "nombre": "granos(kg)",
+          "cantidad": 400
+        }
+      ],
+      "observaciones": "Av. Esq. Blanca 501 cada mes por un año"
+    }
+  ],
+  "clientes": [
+    {
+      "id": "1",
+      "nombre": "Supermercado Los Andes",
+      "contacto": "Carlos Mejía",
+      "telefono": "123456789",
+      "direccion": "Calle Principal 123, Ciudad"
+    },
+    {
+      "id": "2",
+      "nombre": "Bodega La Esperanza",
+      "contacto": "Laura Rodríguez",
+      "telefono": "987654321",
+      "direccion": "Avenida Central 456, Ciudad"
+    }
+  ],
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Leche",
+      "categoria": "Lácteos",
+      "stock": 100
+    },
+    {
+      "id": "2",
+      "nombre": "Manzanas",
+      "categoria": "Frutas",
+      "stock": 50
+    },
+    {
+      "id": "3",
+      "nombre": "Carne",
+      "categoria": "Proteínas",
+      "stock": 200
+    },
+    {
+      "id": "4",
+      "nombre": "Granos",
+      "categoria": "Cereales",
+      "stock": 300
+    }
+  ],
+  "tareas": [
+    {
+      "id": "1",
+      "titulo": "Empacar manzanas",
+      "descripcion": "Empacar manzanas para envío",
+      "fechaInicio": "2024-12-01",
+      "fechaTermino": "2024-12-05",
+      "horasDedicadas": 10,
+      "idTrabajador": "5",
+      "estado": "pendiente"
+    }
+  ]
+}
