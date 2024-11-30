@@ -1,98 +1,128 @@
 {
   "usuarios": [
     {
-      "id": "1",
-      "nombre": "vendedor1",
-      "contrasena": "duoc1234",
-      "tipo": "vendedor"
+      "id_usuario": "1",
+      "username": "vendedor1",
+      "password": "duoc1234",
+      "email": "vendedor1@farmfood.com",
+      "tipo_usuario": "vendedor",
+      "rut": "12345678-9",
+      "nombre": "Juan",
+      "apellido": "Hernández",
+      "telefono": "987654321",
+      "direccion": "Calle Falsa 123"
     },
     {
-      "id": "2",
-      "nombre": "vendedor2",
-      "contrasena": "duoc1234",
-      "tipo": "vendedor"
+      "id_usuario": "2",
+      "username": "vendedor2",
+      "password": "duoc1234",
+      "email": "vendedor2@farmfood.com",
+      "tipo_usuario": "vendedor",
+      "rut": "23456789-0",
+      "nombre": "Ana",
+      "apellido": "Gómez",
+      "telefono": "987654322",
+      "direccion": "Avenida Central 456"
     },
     {
-      "id": "3",
-      "nombre": "admin",
-      "contrasena": "duoc1234",
-      "tipo": "admin"
+      "id_usuario": "3",
+      "username": "admin",
+      "password": "duoc1234",
+      "email": "admin@farmfood.com",
+      "tipo_usuario": "admin",
+      "rut": "11111111-1",
+      "nombre": "Carlos",
+      "apellido": "Ramirez",
+      "telefono": "987654323",
+      "direccion": "Av. Libertador 789"
     },
     {
-      "id": "4",
-      "nombre": "supervisor",
-      "contrasena": "duoc1234",
-      "tipo": "supervisor"
+      "id_usuario": "4",
+      "username": "supervisor",
+      "password": "duoc1234",
+      "email": "supervisor@farmfood.com",
+      "tipo_usuario": "supervisor",
+      "rut": "33333333-3",
+      "nombre": "Laura",
+      "apellido": "Rodríguez",
+      "telefono": "987654324",
+      "direccion": "Calle Nueva 456"
     },
     {
-      "id": "5",
-      "nombre": "trabajador",
-      "contrasena": "duoc1234",
-      "tipo": "trabajador"
+      "id_usuario": "5",
+      "username": "trabajador",
+      "password": "duoc1234",
+      "email": "trabajador@farmfood.com",
+      "tipo_usuario": "trabajador",
+      "rut": "55555555-5",
+      "nombre": "Pedro",
+      "apellido": "González",
+      "telefono": "987654325",
+      "direccion": "Calle Vieja 789"
     }
   ],
   "solicitudes": [
     {
-      "id": "1",
-      "vendedorId": "1",
+      "id_solicitud": "1",
+      "id_vendedor_asociado": "1",
+      "productos": [
+        {
+          "nombre": "carne",
+          "cantidad": "8(kg)"
+        },
+        {
+          "nombre": "granos",
+          "cantidad": "50(kg)"
+        }
+      ],
       "fecha": "2023-10-01",
-      "nombreCliente": "Juan Herrera",
       "estado": "pendiente",
-      "articulos": [
-        {
-          "nombre": "Articulo 1",
-          "cantidad": 2
-        },
-        {
-          "nombre": "Articulo 2",
-          "cantidad": 1
-        }
-      ],
-      "observaciones": "cada mes"
+      "rut_cliente": "12345678-9",
+      "direccion": "Calle Falsa 123"
     },
     {
-      "id": "2",
-      "vendedorId": "1",
+      "id_solicitud": "2",
+      "id_vendedor_asociado": "1",
+      "productos": [
+        {
+          "nombre": "leche",
+          "cantidad": "10(L)"
+        }
+      ],
       "fecha": "2023-10-02",
-      "nombreCliente": "Ana Gomez",
       "estado": "pendiente",
-      "articulos": [
-        {
-          "nombre": "Articulo 3",
-          "cantidad": 5
-        }
-      ],
-      "observaciones": "Observaciones de la solicitud 2"
+      "rut_cliente": "23456789-0",
+      "direccion": "Avenida Central 456"
     },
     {
-      "id": "3",
-      "vendedorId": "1",
-      "fecha": "2024-11-04",
-      "nombreCliente": "Carlos Ramirez",
-      "estado": "pendiente",
-      "articulos": [
+      "id_solicitud": "3",
+      "id_vendedor_asociado": "1",
+      "productos": [
         {
-          "nombre": "carne(kg)",
-          "cantidad": 400
+          "nombre": "carne",
+          "cantidad": "400(kg)"
         },
         {
-          "nombre": "granos(kg)",
-          "cantidad": 400
+          "nombre": "granos",
+          "cantidad": "400(kg)"
         }
       ],
-      "observaciones": "Av. Esq. Blanca 501 cada mes por un año"
+      "fecha": "2024-11-04",
+      "estado": "pendiente",
+      "rut_cliente": "98765432-1",
+      "direccion": "Av. Esq. Blanca 501"
     }
   ],
   "clientes": [
     {
-      "id": "1",
+      "id_cliente": "1",
       "nombre": "Supermercado Los Andes",
       "contacto": "Carlos Mejía",
       "telefono": "123456789",
       "direccion": "Calle Principal 123, Ciudad"
     },
     {
-      "id": "2",
+      "id_cliente": "2",
       "nombre": "Bodega La Esperanza",
       "contacto": "Laura Rodríguez",
       "telefono": "987654321",
@@ -101,25 +131,25 @@
   ],
   "productos": [
     {
-      "id": "1",
+      "id_producto": "1",
       "nombre": "Leche",
       "categoria": "Lácteos",
       "stock": 100
     },
     {
-      "id": "2",
+      "id_producto": "2",
       "nombre": "Manzanas",
       "categoria": "Frutas",
       "stock": 50
     },
     {
-      "id": "3",
+      "id_producto": "3",
       "nombre": "Carne",
       "categoria": "Proteínas",
       "stock": 200
     },
     {
-      "id": "4",
+      "id_producto": "4",
       "nombre": "Granos",
       "categoria": "Cereales",
       "stock": 300
@@ -127,14 +157,16 @@
   ],
   "tareas": [
     {
-      "id": "1",
+      "id_tarea": "1",
       "titulo": "Empacar manzanas",
       "descripcion": "Empacar manzanas para envío",
-      "fechaInicio": "2024-12-01",
-      "fechaTermino": "2024-12-05",
-      "horasDedicadas": 10,
-      "idTrabajador": "5",
-      "estado": "pendiente"
+      "fecha_inicio": "2024-12-01",
+      "fecha_termino": "2024-12-05",
+      "horas_dedicadas": 10,
+      "estado": "pendiente",
+      "id_trabajador": "5",
+      "id_supervisor": "4"
     }
   ]
 }
+
