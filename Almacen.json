@@ -5,7 +5,7 @@
       "username": "vendedor1",
       "password": "duoc1234",
       "email": "vendedor1@farmfood.com",
-      "tipo_usuario": "vendedor",
+      "tipo": "vendedor",
       "rut": "12345678-9",
       "nombre": "Juan",
       "apellido": "Hernández",
@@ -17,7 +17,7 @@
       "username": "vendedor2",
       "password": "duoc1234",
       "email": "vendedor2@farmfood.com",
-      "tipo_usuario": "vendedor",
+      "tipo": "vendedor",
       "rut": "23456789-0",
       "nombre": "Ana",
       "apellido": "Gómez",
@@ -29,7 +29,7 @@
       "username": "admin",
       "password": "duoc1234",
       "email": "admin@farmfood.com",
-      "tipo_usuario": "admin",
+      "tipo": "admin",
       "rut": "11111111-1",
       "nombre": "Carlos",
       "apellido": "Ramirez",
@@ -41,7 +41,7 @@
       "username": "supervisor",
       "password": "duoc1234",
       "email": "supervisor@farmfood.com",
-      "tipo_usuario": "supervisor",
+      "tipo": "supervisor",
       "rut": "33333333-3",
       "nombre": "Laura",
       "apellido": "Rodríguez",
@@ -53,7 +53,7 @@
       "username": "trabajador",
       "password": "duoc1234",
       "email": "trabajador@farmfood.com",
-      "tipo_usuario": "trabajador",
+      "tipo": "trabajador",
       "rut": "55555555-5",
       "nombre": "Pedro",
       "apellido": "González",
@@ -169,4 +169,3 @@
     }
   ]
 }
-
