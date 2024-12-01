@@ -83,6 +83,23 @@ server.put("/productos/:id", (req, res) => {
   res.status(200).json(updatedProduct);
 });
 
+// Eliminar usuarios: elimina los usuarios cuyo id_usuario esté en el array de IDs
+server.post("/usuarios/eliminar", (req, res) => {
+  const { ids } = req.body;
+  if (!ids || !Array.isArray(ids)) {
+    return res.status(400).json({ error: "Formato inválido. Se espera un array de IDs." });
+  }
+
+  const db = router.db;
+  const usuarios = db.get("usuarios").value();
+
+  // Filtrar usuarios que no están en los IDs a eliminar
+  const usuariosActualizados = usuarios.filter((usuario) => !ids.includes(usuario.id_usuario));
+  db.set("usuarios", usuariosActualizados).write();
+
+  res.status(200).json({ message: "Usuarios eliminados correctamente" });
+});
+
 // Crear un nuevo usuario
 server.post("/usuarios", (req, res) => {
   const { nombre, apellido, email, telefono, direccion, tipo, username, password, rut } = req.body;
