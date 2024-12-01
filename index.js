@@ -56,8 +56,45 @@ server.post("/productos", (req, res) => {
   res.status(201).json(addedProduct[addedProduct.length - 1]);
 });
 
+// Editar un producto existente: actualizar un producto por su id_producto
+server.put("/productos/:id", (req, res) => {
+  const { id } = req.params;  // ID del producto a editar
+  const { nombre, categoria, stock } = req.body;  // Datos a actualizar
+
+  // Validar que los campos obligatorios estén presentes
+  if (!nombre || !categoria || stock == null) {
+    return res.status(400).json({ error: "Faltan datos en el producto." });
+  }
+
+  const db = router.db;
+  const productos = db.get("productos").value();  // Obtener productos actuales
+
+  // Buscar el producto por id_producto
+  const productIndex = productos.findIndex(producto => producto.id_producto === id);
+  if (productIndex === -1) {
+    return res.status(404).json({ error: "Producto no encontrado." });
+  }
+
+  // Actualizar el producto
+  const updatedProduct = {
+    ...productos[productIndex],  // Mantener los datos antiguos
+    nombre,
+    categoria,
+    stock
+  };
+
+  // Reemplazar el producto en el archivo JSON
+  db.get("productos")
+    .splice(productIndex, 1, updatedProduct)  // Reemplazar el producto editado
+    .write();
+
+  // Responder con el producto actualizado
+  res.status(200).json(updatedProduct);
+});
+
 server.use(router);
 
 server.listen(port, () => {
   console.log(`Servidor corriendo en el puerto ${port}`);
 });
+
