@@ -35,7 +35,7 @@ server.post("/productos", (req, res) => {
     return res.status(400).json({ error: "Faltan datos en el producto." });
   }
 
-  // Crear el nuevo producto sin necesidad de enviar id_producto (json-server asignará uno)
+  // Crear el nuevo producto sin necesidad de enviar id_producto (json-server asignará uno automáticamente)
   const newProduct = {
     nombre,
     categoria,
@@ -46,7 +46,8 @@ server.post("/productos", (req, res) => {
   const db = router.db;
   const addedProduct = db.get("productos").push(newProduct).write();
 
-  res.status(201).json(addedProduct); // Devuelve el producto creado con su id
+  // Responder con el producto creado, incluyendo su id generado
+  res.status(201).json(addedProduct[addedProduct.length - 1]); // Devuelve el último producto agregado
 });
 
 server.use(router);
@@ -54,4 +55,3 @@ server.use(router);
 server.listen(port, () => {
   console.log(`Servidor corriendo en el puerto ${port}`);
 });
-
