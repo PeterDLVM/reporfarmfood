@@ -26,7 +26,7 @@ server.post("/productos/eliminar", (req, res) => {
   res.status(200).json({ message: "Productos eliminados correctamente" });
 });
 
-// Crear un nuevo producto: no se necesita enviar el id_producto (json-server lo maneja automáticamente)
+// Crear un nuevo producto: aquí asignamos el id_producto manualmente
 server.post("/productos", (req, res) => {
   const { nombre, categoria, stock } = req.body;
 
@@ -35,19 +35,25 @@ server.post("/productos", (req, res) => {
     return res.status(400).json({ error: "Faltan datos en el producto." });
   }
 
-  // Crear el nuevo producto sin necesidad de enviar id_producto (json-server asignará uno automáticamente)
+  // Crear el nuevo producto y asignar un id_producto manualmente
+  const db = router.db;
+  const productos = db.get("productos").value(); // Obtener productos actuales
+
+  // Generamos un id_producto basado en el último producto (si existe) o un número único
+  const newId = productos.length > 0 ? (parseInt(productos[productos.length - 1].id_producto) + 1).toString() : "1";
+
   const newProduct = {
+    id_producto: newId, // Asignamos el id_producto manualmente
     nombre,
     categoria,
     stock
   };
 
   // Agregar el nuevo producto al archivo JSON
-  const db = router.db;
   const addedProduct = db.get("productos").push(newProduct).write();
 
-  // Responder con el producto creado, incluyendo su id generado
-  res.status(201).json(addedProduct[addedProduct.length - 1]); // Devuelve el último producto agregado
+  // Devuelve el producto creado con su id_producto asignado
+  res.status(201).json(addedProduct[addedProduct.length - 1]);
 });
 
 server.use(router);
