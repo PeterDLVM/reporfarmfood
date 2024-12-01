@@ -94,10 +94,10 @@ server.put("/productos/:id", (req, res) => {
 
 // Crear un nuevo usuario
 server.post("/usuarios", (req, res) => {
-  const { nombre, apellido, email, telefono, direccion, tipo_usuario, username, password } = req.body;
+  const { nombre, apellido, email, telefono, direccion, tipo, username, password, rut } = req.body;
 
   // Validar que todos los campos requeridos estén presentes
-  if (!nombre || !apellido || !email || !telefono || !direccion || !tipo_usuario || !username || !password) {
+  if (!nombre || !apellido || !email || !telefono || !direccion || !tipo || !username || !password || !rut) {
     return res.status(400).json({ error: "Faltan datos en el usuario." });
   }
 
@@ -114,9 +114,10 @@ server.post("/usuarios", (req, res) => {
     email,
     telefono,
     direccion,
-    tipo_usuario,
+    tipo, // Cambiado de tipo_usuario a tipo
     username,
-    password
+    password,
+    rut // Se añadió el campo rut
   };
 
   // Agregar el nuevo usuario al archivo JSON
@@ -129,10 +130,10 @@ server.post("/usuarios", (req, res) => {
 // Editar un usuario existente: actualizar un usuario por su id_usuario
 server.put("/usuarios/:id", (req, res) => {
   const { id } = req.params;  // ID del usuario a editar
-  const { nombre, apellido, email, telefono, direccion, tipo_usuario, username, password } = req.body;  // Datos a actualizar
+  const { nombre, apellido, email, telefono, direccion, tipo, username, password, rut } = req.body;  // Datos a actualizar
 
   // Validar que los campos obligatorios estén presentes
-  if (!nombre || !apellido || !email || !telefono || !direccion || !tipo_usuario || !username || !password) {
+  if (!nombre || !apellido || !email || !telefono || !direccion || !tipo || !username || !password || !rut) {
     return res.status(400).json({ error: "Faltan datos en el usuario." });
   }
 
@@ -153,9 +154,10 @@ server.put("/usuarios/:id", (req, res) => {
     email,
     telefono,
     direccion,
-    tipo_usuario,
+    tipo,  // Cambiado de tipo_usuario a tipo
     username,
-    password
+    password,
+    rut // Se añadió el campo rut
   };
 
   // Reemplazar el usuario en el archivo JSON
