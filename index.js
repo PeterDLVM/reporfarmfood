@@ -166,6 +166,30 @@ server.put("/usuarios/:id", (req, res) => {
   res.status(200).json(updatedUser);
 });
 
+// Ruta para actualizar el estado de una solicitud
+server.put("/solicitudes/:id", (req, res) => {
+  const { id } = req.params;
+  const { estado } = req.body;  // Solo actualizamos el estado
+
+  if (!estado) {
+    return res.status(400).json({ error: "Estado no proporcionado." });
+  }
+
+  const db = router.db;
+  const solicitudes = db.get("solicitudes").value();
+
+  const solicitudIndex = solicitudes.findIndex(solicitud => solicitud.id_solicitud === id);
+  if (solicitudIndex === -1) {
+    return res.status(404).json({ error: "Solicitud no encontrada." });
+  }
+
+  const updatedSolicitud = { ...solicitudes[solicitudIndex], estado };
+
+  db.get("solicitudes").splice(solicitudIndex, 1, updatedSolicitud).write();
+
+  res.status(200).json(updatedSolicitud);
+});
+
 // Usar el enrutador para manejar las rutas por defecto
 server.use(router);
 
